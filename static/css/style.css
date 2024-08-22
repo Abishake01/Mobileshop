@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
+
+html{
+    font-size: 14px;
+
+}
+
+body{
+    font-family:'Yantramanav';
+} 
+a{
+    text-decoration: none;
+}
+.carousel-item img {
+    object-fit: cover;
+    object-position: top;
+    height: 50vh;
+    overflow: hidden;
+}

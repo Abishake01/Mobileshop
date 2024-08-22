@@ -21,6 +21,14 @@
             font-weight: bold;
             color: #000000d6;
             margin-left: 40px;
+             
+            
+        }
+        .logo a{
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+             
         }
         .search-bar {
             display: flex;
@@ -60,7 +68,9 @@
 <body>
 
     <header class="header">
-        <div class="logo">Partha Mobiles</div>
+       <div class="logo">
+        <a href="{% url 'home' %}">Partha Mobiles</a>
+       </div>
         <div class="search-bar">
             <input type="text" placeholder="Search for products, brands and more">
         </div>
@@ -78,7 +88,7 @@
         <a href="#">SERVICES</a>
         <a href="#">ABOUT</a>
         <a href="#">CONTACT</a>
-    </div>
+    </div><br>
 
  
 
