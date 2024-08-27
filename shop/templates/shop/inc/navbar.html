@@ -43,11 +43,14 @@
             outline: none;
         }
         .nav-links {
+            
             display: flex;
-            gap: 120px;
+            gap: 110px;
             align-items: center;
+            font-size: larger;
         }
         .nav-links a {
+            text-shadow: rgb(0, 0, 0);
             text-decoration: none;
             color: #000;
             font-weight: bold;
@@ -59,8 +62,12 @@
             align-items: center;
         }
         .cart-icons a {
+            font-weight: bold;  
             font-size: 20px;
             cursor: pointer;
+        }
+        hr{
+            box-shadow: inset;
         }
          
     </style>
@@ -76,15 +83,15 @@
         </div>
        
         <div class="cart-icons">
-            <a>Cart</a>
-            <a>Favourite</a>
-            <a>Register</a>
+            <a><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+            <a><i class="fa-regular fa-heart"></i> Like</a>
+            <a><i class="fa-solid fa-user"></i> Register</a>
         </div>
-    </header><br>
+    </header><hr>
     <div class="nav-links">
-        <a href="#">MOBILES</a>
-        <a href="#">ACCESSORIES</a>
-        <a href="#">GADGETS</a>
+        <a href="#">MOBILES <i class="fa-solid fa-chevron-down"></i></i></a>
+        <a href="#">ACCESSORIES <i class="fa-solid fa-chevron-down"></i></i></a>
+        <a href="#">GADGETS <i class="fa-solid fa-chevron-down"></i></i></a>
         <a href="#">SERVICES</a>
         <a href="#">ABOUT</a>
         <a href="#">CONTACT</a>
