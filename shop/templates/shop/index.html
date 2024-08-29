@@ -1,5 +1,28 @@
 {% extends 'shop/layouts/main.html' %}
 {% block content %}
 {% include 'shop/inc/slider.html' %}
-<h1>Brands</h1>
+<section class=" py-4 my-5">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Brands</h1>
+            <hr>
+        </div>
+        {% for item in catagory %}
+        <div class="col-md-4 col-lg-3">
+            <div class="card my-3">
+                <img src="{{item.image.url}}" class="card-image-top" alt="categories">
+                <a href="#"><hr>
+                <div class="card-body">
+                    <h5>{{ item.name }}</h5>
+                    <p>{{ item.description }}</p>
+                </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div> 
+</section>
+ 
 {% endblock content %}
