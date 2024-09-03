@@ -1,14 +1,38 @@
 {% extends 'shop/layouts/main.html' %}
 {% block content %}
 
-<section class="bg-light py-4 my-5">
+<section class=" py-4 my-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h4 class="mb-3">Mobiles</h4>
-                <hr style="border: color #b8bfc2;">
+                <h1>{{category_name}}</h1>
+                <hr>
             </div>
+            {% for item in products %}
+            <div class="col-md-4 col-lg-3">
+                <div class="card my-3">
+                    <img src="{{item.product_image.url}}" class="card-image-top" alt="categories">
+                    <a href="{% url 'mobileviews' item.name %}">
+                        <hr>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">{{ item.name }}</h5>
+                            <p class="card-text">
+                                <span class="float-start" style=" font-weight: bold;
+                                color: red;"><s>Rs.{{ item.orginal_price | stringformat:'d' }}</s></span>
+                                <span class="float-end new_price" style="font-weight: bold;
+                        color: wheat;
+                        background-color: green;
+                        padding: 3px;
+                        border-radius: 3px;">Rs.{{ item.selling_price | stringformat:'d' }}</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+
     </div>
+
 </section>
 {% endblock content %}
