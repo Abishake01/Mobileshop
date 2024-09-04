@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import redirect, render
 from .models import *
 from django.contrib import messages
@@ -15,5 +16,17 @@ def mobileviews(request,name):
         messages.error(request,"No such Product Found")
         return redirect('home')
     
+    
+def product_details(request,cname,pname):
+    if(Catagory.objects.filter(name=cname,status=0)):
+        if(Product.objects.filter(name=pname,status=0)):
+            products=Product.objects.filter(name=pname,status=0).first()
+            return render(request,'shop/products/product_details.html',{'products':products})
+        else:
+            messages.error(request,'No such Category Found')
+            return redirect('home')
+    else:
+        messages.error(request,'No such Category Found')
+        return redirect('home')
     
     

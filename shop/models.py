@@ -27,7 +27,7 @@ class Product(models.Model):
     selling_price=models.FloatField(null=False,blank=False)
     description=models.TextField(max_length=500,null=False,blank=False)
     status=models.BooleanField(default=False,help_text='0-show,1-Hidden')
-    trending=models.BooleanField(default=False,help_text='0=default,1-Trending')
+    trending=models.BooleanField(default=False,help_text='0-default,1-Trending')
     created_at=models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
