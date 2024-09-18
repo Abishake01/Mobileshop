@@ -1,76 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #00BCD4;  
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #00BCD4; 
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #000000d6;
-            margin-left: 40px;
-             
-            
-        }
-        .logo a{
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-             
-        }
-        .search-bar {
-            display: flex;
-            flex: 1;
-            margin: 0 20px;
-        }
-        .search-bar input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 50px;
-            border: none;
-            outline: none;
-        }
-        .nav-links {
-            
-            display: flex;
-            gap: 110px;
-            align-items: center;
-            font-size: larger;
-        }
-        .nav-links a {
-            text-shadow: rgb(0, 0, 0);
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            margin-left: 60px;
-        }
-        .cart-icons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        .cart-icons a {
-            font-weight: bold;  
-            font-size: 20px;
-            cursor: pointer;
-        }
-        hr{
-            box-shadow: inset;
-        }
-         
-    </style>
+    {% load static %}
+     <title>Mobile shop</title>
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
