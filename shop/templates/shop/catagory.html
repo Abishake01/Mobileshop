@@ -1,27 +1,41 @@
 {% extends 'shop/layouts/main.html' %}
 {% block content %}
 {% include 'shop/inc/slider.html' %}
-<section class=" py-4 my-5">
+<section class="font-bold text-4xl pt-5 pl-16">
+    <div>
+        <div>
+            <div>
+                <h1>Brands</h1>
+            </div>
+            <div class="box-content bg-white ">
+                 
+            </div>
+        </div>
+    </div>
+</section>
+<section class="font-bold text-4xl pt-5 pl-14">
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Catagory</h1>
+            <h1 class="pb-2">Catagory</h1>
             <hr>
         </div>
         {% for item in catagory %}
         <div class="col-md-4 col-lg-3">
+            <h5 class="text-3xl pt-3">{{ item.name }}</h5>
             <div class="card my-3">
                 <img src="{{item.image.url}}" class="card-image-top" alt="categories">
                 <a href="{% url 'mobileviews' item.name %}"><hr>
                 <div class="card-body">
-                    <h5 class="card-title text-primary">{{ item.name }}</h5>
-                    <p class="card-text">{{ item.description }}</p>
+                    <h5 class="card-title text-primary text-xl">{{ item.name }}</h5>
+                    <p class="card-text  text-xl">{{ item.description }}</p>
                 </div> 
                 </a>
                 </div>
             </div>
             {% endfor %}
         </div>
+        
         
     </div>
     

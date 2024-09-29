@@ -5,7 +5,7 @@ from django.contrib import messages
  
 def home(request):
     catagory=Catagory.objects.filter(status=0)
-    return render(request,'shop/index.html',{'catagory':catagory})
+    return render(request,'shop/catagory.html',{'catagory':catagory})
 def register(request):
     return render(request,'shop/register.html')
 def mobileviews(request,name):
