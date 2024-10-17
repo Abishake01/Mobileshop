@@ -2,7 +2,6 @@
 
 html{
     font-size: 14px;
-
 }
 
 a{
@@ -31,8 +30,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: #000000d6;
-    margin-left: 40px;
-     
+    margin-left: 40px;   
     
 }
 .logo a{
@@ -104,4 +102,8 @@ hr{
     font-weight: bold;
     font-size: x-large;
     
+}
+#pro_img{
+    height: fit-content;
+    width: 300px;
 }

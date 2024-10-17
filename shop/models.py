@@ -17,6 +17,13 @@ class Catagory(models.Model):
     def __str__(self):
        return self.name
 
+class Brands(models.Model):
+    brand_name=models.CharField(max_length=150,null=False,blank=False)
+    brand_logo=models.ImageField(upload_to='brands/',null=True,blank=True)
+    
+    def __str__(self):
+       return self.brand_name
+
 class Product(models.Model):
     category=models.ForeignKey(Catagory,on_delete=models.CASCADE)
     name=models.CharField(max_length=150,null=False,blank=False)
@@ -32,3 +39,4 @@ class Product(models.Model):
     
     def __str__(self):
        return self.name
+   

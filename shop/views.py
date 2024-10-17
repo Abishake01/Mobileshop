@@ -9,6 +9,7 @@ def home(request):
 def register(request):
     return render(request,'shop/register.html')
 def mobileviews(request,name):
+    
     if (Catagory.objects.filter(name=name,status=0)): 
         products=Product.objects.filter(category__name=name)
         return render(request,'shop/products/index.html',{'products':products,'category_name':name})
@@ -27,6 +28,11 @@ def product_details(request,cname,pname):
             return redirect('home')
     else:
         messages.error(request,'No such Category Found')
-        return redirect('home')
-    
-    
+
+def brand(request, bname):
+ 
+    brand = Brands.objects.filter(brand_name=bname,).first()
+    return render(request, 'shop/catagory.html', {'brand': brand})
+
+def service_page(request):
+    return render(request, 'service.html')

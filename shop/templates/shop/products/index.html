@@ -4,10 +4,7 @@
 <section class=" py-4 my-5">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h1>{{category_name}}</h1>
-                <hr>
-            </div>
+             
             {% for item in products %}
             <div class="col-md-4 col-lg-3">
                 <div class="card my-3">
@@ -16,7 +13,7 @@
                         <hr>
                         <div class="card-body">
                             <h5 class="card-title text-primary">{{ item.name }}</h5>
-                            <p class="card-text">
+                            <p class="card-text p-4">
                                 <span class="float-start" style=" font-weight: bold;
                                 color: red;"><s>Rs.{{ item.orginal_price | stringformat:'d' }}</s></span>
                                 <span class="float-end new_price">Rs.{{ item.selling_price | stringformat:'d' }}</span>
