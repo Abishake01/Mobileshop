@@ -11,7 +11,9 @@ urlpatterns = [
     path('home/<str:name>/', views.mobileviews, name='mobileviews'),
     path('home/<str:name>/', views.brand, name='brand'),
     path('home/<str:cname>/<str:pname>', views.product_details, name='product_details'),
-   # path('service/', views.service_page, name='service'),
+    path('service/', views.service_page, name='service'),
+    path('about/',views.about_page,name='about'),
+    path('contact',views.Contact_page,name='contact'),
 ]
 '''
 urlpatterns = [

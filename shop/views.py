@@ -1,13 +1,16 @@
 from http.client import HTTPResponse
 from django.shortcuts import redirect, render
+from shop.form import CustomUserForm
 from .models import *
 from django.contrib import messages
  
 def home(request):
+    products=Product.objects.filter(trending=1)
     catagory=Catagory.objects.filter(status=0)
-    return render(request,'shop/catagory.html',{'catagory':catagory})
+    return render(request,'shop/catagory.html',{'catagory':catagory,'products':products})
 def register(request):
-    return render(request,'shop/register.html')
+    form=CustomUserForm()
+    return render(request,'shop/register.html',{'form':form})
 def mobileviews(request,name):
     
     if (Catagory.objects.filter(name=name,status=0)): 
@@ -35,4 +38,8 @@ def brand(request, bname):
     return render(request, 'shop/catagory.html', {'brand': brand})
 
 def service_page(request):
-    return render(request, 'service.html')
+    return render(request, 'shop/service.html')
+def about_page(request):
+    return render(request,'shop/about.html')
+def Contact_page(request):
+    return render(request,'shop/contact.html')

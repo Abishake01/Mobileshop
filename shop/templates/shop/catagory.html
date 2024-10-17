@@ -6,7 +6,7 @@
         
         {% for company in brand %}
             <div class="box-content bg-white border-2 p-4 shadow-lg mb-4">
-                 
+                
                 {% if company.brand_logo %}
                     <img src="{{ company.brand_logo.url }}" alt="{{ company.brand_name }} logo" class="w-32 h-32 object-contain">
                 {% else %}
@@ -26,7 +26,7 @@
             <hr>
         </div>
         {% for item in catagory %}
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-lg-3 ml-10 mb-4 mr-10">
             <h5 class="text-3xl pt-3">{{ item.name }}</h5>
             <div class="card my-3">
                 <img src="{{item.image.url}}" class="card-image-top" alt="categories">
@@ -42,5 +42,29 @@
         </div>
     </div>
 </section>
+<div class="container">
+    <div class="row">
+         <div class="container font-bold text-4xl ml-24 mb-8" ><h1>Latest Offers</h1></div>
+        {% for item in products %}
+        <div class="col-md-4 col-lg-3  ml-20 mb-4 ">
+            <div class="card my-1">
+                <img src="{{item.product_image.url}}" class="card-image-top" alt="categories">
+                <a href="{% url 'product_details'  item.category.name item.name %}">
+                    <hr>
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ item.name }}</h5>
+                        <p class="card-text p-4">
+                            <span class="float-start" style=" font-weight: bold;
+                            color: red;"><s>Rs.{{ item.orginal_price | stringformat:'d' }}</s></span>
+                            <span class="float-end new_price">Rs.{{ item.selling_price | stringformat:'d' }}</span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
  
 {% endblock content %}
