@@ -1,15 +1,38 @@
 from http.client import HTTPResponse
+import json
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from shop.form import CustomUserForm
 from .models import *
 from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
  
 def home(request):
     products=Product.objects.filter(trending=1)
     catagory=Catagory.objects.filter(status=0)
     return render(request,'shop/catagory.html',{'catagory':catagory,'products':products})
+
+def logout_page(request):
+    if request.user.is_authenticated:
+        logout(request)
+        messages.success(request,"Logout success")
+    return redirect('/home')
 def login_page(request):
-    return render(request,'shop/login.html')
+    if request.user.is_authenticated:
+        return redirect('/home')
+    else:
+     if request.method=='POST':
+        name=request.POST.get('username')
+        pwd=request.POST.get('password')
+        user=authenticate(request,username=name,password=pwd)
+        if user is not None:
+            login(request,user)
+            messages.success(request,"Logged in Successfully")
+            return redirect('/')
+        else:
+            messages.error(request,"Invalid User Name Or Password")
+            return redirect('/login')
+     return render(request,'shop/login.html')
 def register(request):
     form=CustomUserForm()
     if request.method=='POST':
@@ -54,3 +77,13 @@ def about_page(request):
 
 def Contact_page(request):
     return render(request,'shop/contact.html')
+
+def add_to_cart(request):
+    if request.headers.get('x-requested-with')=='XMLHttpRequest':
+        if request.user.is_authenticated:
+            data=json.load(request)
+            return JsonResponse({'status':'Product Add to Cart Success'}, status=200)
+        else:
+            return JsonResponse({'status':'Login to Add Cart'}, status=200)
+    else:
+        return JsonResponse({'status':'Invalid Access'}, status=200)

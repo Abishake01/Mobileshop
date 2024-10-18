@@ -17,14 +17,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #00BCD4;  
+    background-color: #3fe0f6;  
 }
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #00BCD4; 
+    background-color: #3fe0f6; 
 }
 .logo {
     font-size: 24px;
