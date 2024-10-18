@@ -23,17 +23,18 @@
         <div class="cart-icons">
             <a><i class="fa-solid fa-cart-shopping"></i> Cart</a>
             <a><i class="fa-regular fa-heart"></i> Like</a>
-            <a><i class="fa-solid fa-user"></i> Register</a>
+            <a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>Login</a>
         </div>
     </header><hr><br>
-    <div class="nav-links">
-        
-        <a href="#">MOBILES <i class="fa-solid fa-chevron-down"></i></a>
-        <a href="#">ACCESSORIES <i class="fa-solid fa-chevron-down"></i></i></a>
-        <a href="#">GADGETS <i class="fa-solid fa-chevron-down"></i></i></a>
-        <a href="{% url 'service' %}">SERVICES</a>
-        <a href="{% url 'about' %}">ABOUT</a>
-        <a href="{% url 'contact' %}">CONTACT</a>
+    <div class="nav-links mt-2">
+        <ul class="flex justify-center space-x-12 text-black">
+        <li><a href="#">MOBILES <i class="fa-solid fa-chevron-down"></i></a></li>
+        <li><a href="#">ACCESSORIES <i class="fa-solid fa-chevron-down"></i></i></a></li>
+        <li><a href="#">GADGETS <i class="fa-solid fa-chevron-down"></i></i></a></li>
+        <li><a href="{% url 'service' %}">SERVICES</a></li>
+        <li><a href="{% url 'about' %}">ABOUT</a></li>
+        <li><a href="{% url 'contact' %}">CONTACT</a></li>
+    </ul>
     </div>
 <br>
 

@@ -51,20 +51,7 @@ body {
     border: none;
     outline: none;
 }
-.nav-links {
-    
-    display: flex;
-    gap: 80px;
-    align-items: center;
-    font-size: larger;
-}
-.nav-links a {
-    text-shadow: rgb(0, 0, 0);
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    margin-left: 60px;
-}
+ 
 .cart-icons {
     display: flex;
     gap: 20px;
@@ -72,7 +59,7 @@ body {
     
 }
 .cart-icons a {
-    font-weight: bold;  
+       
     font-size: 20px;
     cursor: pointer;
 }

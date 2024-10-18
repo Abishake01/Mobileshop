@@ -8,9 +8,18 @@ def home(request):
     products=Product.objects.filter(trending=1)
     catagory=Catagory.objects.filter(status=0)
     return render(request,'shop/catagory.html',{'catagory':catagory,'products':products})
+def login_page(request):
+    return render(request,'shop/login.html')
 def register(request):
     form=CustomUserForm()
+    if request.method=='POST':
+        form=CustomUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Success')
+            return redirect('/login')
     return render(request,'shop/register.html',{'form':form})
+
 def mobileviews(request,name):
     
     if (Catagory.objects.filter(name=name,status=0)): 
@@ -39,7 +48,9 @@ def brand(request, bname):
 
 def service_page(request):
     return render(request, 'shop/service.html')
+
 def about_page(request):
     return render(request,'shop/about.html')
+
 def Contact_page(request):
     return render(request,'shop/contact.html')

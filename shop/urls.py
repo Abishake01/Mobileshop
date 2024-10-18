@@ -7,6 +7,7 @@ from . import views
 urlpatterns = [
     path('home',views.home,name='home'),
     path('register',views.register,name='register'),
+    path('login',views.login_page,name='login'),
     #path('home/<str:catagory>/',views.mobileviews,name='mobileviews'),
     path('home/<str:name>/', views.mobileviews, name='mobileviews'),
     path('home/<str:name>/', views.brand, name='brand'),
