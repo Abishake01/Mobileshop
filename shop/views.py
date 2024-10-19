@@ -114,4 +114,38 @@ def cart_page(request):
         return render(request,'shop/cart.html',{'cart':cart})
     else:
        return redirect('/home')
-  
+   
+def remove_cart(request,cid):
+    cartitem=Cart.objects.get(id=cid)
+    cartitem.delete()
+    return redirect('/cart')
+
+def fav_page(request):
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        if request.user.is_authenticated:
+            data = json.loads(request.body)
+            product_id = data.get('pid')
+            product_status = Product.objects.get(id=product_id)
+
+            if product_status:
+                if Favourite.objects.filter(user=request.user, product_id=product_id).exists():
+                    return JsonResponse({'status': 'Product Already in Favourite'}, status=200)
+                else:
+                    Favourite.objects.create(user=request.user, product_id=product_id)
+                    return JsonResponse({'status': 'Added to Favourite'}, status=200)
+        else:
+            return JsonResponse({'status': 'Login to Add to Favourite'}, status=403)
+    else:
+        return JsonResponse({'status': 'Invalid Access'}, status=400)
+
+def favviewpage(request):
+    if request.user.is_authenticated:
+        fav=Favourite.objects.filter(user=request.user)
+        return render(request,'shop/fav.html',{'fav':fav})
+    else:
+       return redirect('/home')
+   
+def remove_fav(request,fid):
+    favitem=Favourite.objects.get(id=fid)
+    favitem.delete()
+    return redirect('/favviewpage')

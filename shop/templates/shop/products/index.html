@@ -14,9 +14,9 @@
                         <div class="card-body shadow-md">
                             <h5 class="card-title text-primary">{{ item.name }}</h5>
                             <p class="card-text p-4">
-                                <span class="float-start text-red-600 font-bold">
+                                <span class="float-start bg-red-500 text-white px-2 py-1 rounded-md hover:bg-red-600 shadow-md font-bold">
                                  <s>Rs.{{ item.orginal_price | stringformat:'d' }}</s></span>
-                                <span class="float-end  bg-green-500 p-1 font-bold text-yellow-50 rounded-b shadow-md rounded-t">Rs.{{ item.selling_price | stringformat:'d' }}</span>
+                                <span class="float-end  bg-green-500 px-2 py-1  font-bold text-yellow-50 hover:bg-green-600 rounded-md shadow-md">Rs.{{ item.selling_price | stringformat:'d' }}</span>
                             </p>
                         </div>
                     </a>

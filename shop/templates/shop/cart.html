@@ -40,7 +40,7 @@
                     <span class="font-medium">{{item.total_cost | stringformat:'d'}}</span>
                   </td>
                   <td class="p-4 text-center">
-                    <button class="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600">Remove</button>
+                   <a href="{% url 'remove_cart' item.id %}"> <button  onclick="return confirm('Are You Sure to remove')" class="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"> Remove <i class="fa-solid fa-trash"></i></button></a>
                   </td>
                 </tr>
                 {% endfor %}
