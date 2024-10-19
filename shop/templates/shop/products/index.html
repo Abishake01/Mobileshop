@@ -11,12 +11,12 @@
                     <img src="{{item.product_image.url}}" class="card-image-top" alt="categories">
                     <a href="{% url 'product_details' category_name item.name %}">
                         <hr>
-                        <div class="card-body">
+                        <div class="card-body shadow-md">
                             <h5 class="card-title text-primary">{{ item.name }}</h5>
                             <p class="card-text p-4">
-                                <span class="float-start" style=" font-weight: bold;
-                                color: red;"><s>Rs.{{ item.orginal_price | stringformat:'d' }}</s></span>
-                                <span class="float-end new_price">Rs.{{ item.selling_price | stringformat:'d' }}</span>
+                                <span class="float-start text-red-600 font-bold">
+                                 <s>Rs.{{ item.orginal_price | stringformat:'d' }}</s></span>
+                                <span class="float-end  bg-green-500 p-1 font-bold text-yellow-50 rounded-b shadow-md rounded-t">Rs.{{ item.selling_price | stringformat:'d' }}</span>
                             </p>
                         </div>
                     </a>

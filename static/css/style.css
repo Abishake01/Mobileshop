@@ -7,6 +7,7 @@ html{
 a{
     text-decoration: none;
 }
+
 .carousel-item img {
     object-fit: cover;
     object-position: top;

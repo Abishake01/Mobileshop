@@ -9,6 +9,7 @@ urlpatterns = [
     path('register',views.register,name='register'),
     path('login',views.login_page,name='login'),
     path('logout',views.logout_page,name='logout'),
+    path('cart',views.cart_page,name='cart'),
     #path('home/<str:catagory>/',views.mobileviews,name='mobileviews'),
     path('home/<str:name>/', views.mobileviews, name='mobileviews'),
     path('home/<str:name>/', views.brand, name='brand'),

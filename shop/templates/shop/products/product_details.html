@@ -8,28 +8,30 @@
         <div class=" col-4 my-3 ml-12 " id="pro_img">
             <img src="{{products.product_image.url}}" class="h-96 w-96" alt="{{products}}">
         </div>
-        <div class=" col-7 my-3 ml-12" id="contain" style="background-color: rgb(233, 229, 229); padding: 20px;">
-            <h4 class="text-success">{{products | upper}}</h4>
-            <p>{{products.vendor}}</p>
+        <div class=" col-6 my-3 shadow-md" id="contain" style="background-color: rgb(250, 235, 235); padding: 20px;">
+            <h4 class="text-success">{{products | upper}}</h4> <br>
+            <!--<p>{{products.vendor}}</p>-->
             <p>{{products.description}}</p>
             <h6 class="my-2 text-danger">Current Price :Rs.<s>{{products.orginal_price}}</s></h6>
             <h5 class="my-2 text-primary">Offer Price   :Rs.{{products.selling_price}}</h5>
             <div class="my-3">
                 {% if products.quantity > 0 %}
                 <input type="hidden" value="{{products.id}}" id="pid">
-                {% csrf_token %}
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+                
                 <p>
                     <div class="input-group w-40" >
                         <button class="input-group-text bg-success text-lime-50 " id="btnMinus"><i class="fa fa-minus"></i></button>
                             <input type="text" name="qty" id="txtQty" value="1" class="form-control text-center">
                         <button  class="input-group-text bg-success text-lime-50 " id="btnPlus"><i class="fa fa-plus"></i></button>
                     </div>
-                </p>
-                <button class="btn btn-primary" id="btnCart"><i class="fa-solid fa-cart-shopping "></i> Add to Cart</button>
+                </p><br>
+                <button class="btn btn-primary shadow-md" id="btnCart"><i class="fa-solid fa-cart-shopping "></i> Add to Cart</button>
                 {% else %}
-                <button class="btn btn-secondary"><i class="fa-solid fa-minus "></i> Outof Stack </button>
+                <button class="btn btn-secondary shadow-md"><i class="fa-solid fa-minus "></i> Outof Stack </button>
                 {% endif %}
-                <button class="btn btn-danger"><i class="fa fa-heart"></i></button>
+                <button class="btn btn-danger shadow-md"><i class="fa fa-heart"></i></button>
             </div>
         </div>
         </div>
@@ -44,7 +46,7 @@
         const txtQty = document.getElementById("txtQty");
         const pid = document.getElementById("pid");
         const tkn = document.querySelector('[name="csrfmiddlewaretoken"]').value;
-        const btnCart = document.getElementById("btncart");
+        const btnCart = document.getElementById("btnCart");
 
         btnPlus.addEventListener("click", function() {
      
@@ -86,13 +88,15 @@
                 headers:{
                     'Accept': 'application/json',
                     'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRFToken': '{{ csrf_token }}',
+                    'X-CSRFToken': tkn,
+
                 },
                 body: JSON.stringify(postObj)
              }).then(response => {
                 return response.json();
              }).then(data => {
-                console.log(data);
+                //console.log(data);
+                alert(data['status']);
              });
              
          }else{

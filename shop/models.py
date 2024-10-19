@@ -47,3 +47,6 @@ class Cart(models.Model):
     product_qty=models.IntegerField(null=False,blank=False)
     created_at=models.DateTimeField(auto_now_add=True)
     
+    @property
+    def total_cost(self):
+        return self.product_qty*self.product.selling_price

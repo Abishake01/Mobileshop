@@ -21,18 +21,19 @@ def login_page(request):
     if request.user.is_authenticated:
         return redirect('/home')
     else:
-     if request.method=='POST':
-        name=request.POST.get('username')
-        pwd=request.POST.get('password')
-        user=authenticate(request,username=name,password=pwd)
-        if user is not None:
-            login(request,user)
-            messages.success(request,"Logged in Successfully")
-            return redirect('/')
-        else:
-            messages.error(request,"Invalid User Name Or Password")
-            return redirect('/login')
-     return render(request,'shop/login.html')
+        if request.method == 'POST':
+            name = request.POST.get('username')
+            pwd = request.POST.get('password')
+            user = authenticate(request, username=name, password=pwd)
+            if user is not None:
+                login(request, user)
+                messages.success(request, "Logged in Successfully")
+                return redirect('/home')
+            else:
+                messages.error(request, "Invalid Username or Password")
+                return redirect('/login')
+        return render(request, 'shop/login.html')
+
 def register(request):
     form=CustomUserForm()
     if request.method=='POST':
@@ -79,11 +80,38 @@ def Contact_page(request):
     return render(request,'shop/contact.html')
 
 def add_to_cart(request):
-    if request.headers.get('x-requested-with')=='XMLHttpRequest':
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         if request.user.is_authenticated:
-            data=json.load(request)
-            return JsonResponse({'status':'Product Add to Cart Success'}, status=200)
+            try:
+                data = json.loads(request.body)   
+                product_qty = data.get('product_qty')
+                product_id = data.get('pid')
+                
+                # Check if product exists
+                product = Product.objects.get(id=product_id)
+                
+                if product:
+                     
+                    if Cart.objects.filter(user=request.user, product_id=product_id).exists():
+                        return JsonResponse({'status': 'Product Already in Cart'}, status=200)
+                    else:
+                       
+                        if product.quantity >= product_qty:
+                            Cart.objects.create(user=request.user, product=product, product_qty=product_qty)
+                            return JsonResponse({'status': 'Product Added to Cart Successfully'}, status=200)
+                        else:
+                            return JsonResponse({'status': 'Product Stock Not Available'}, status=200)
+            except Product.DoesNotExist:
+                return JsonResponse({'status': 'Product Not Found'}, status=404)
         else:
-            return JsonResponse({'status':'Login to Add Cart'}, status=200)
+            return JsonResponse({'status': 'Login to Add to Cart'}, status=403)
     else:
-        return JsonResponse({'status':'Invalid Access'}, status=200)
+        return JsonResponse({'status': 'Invalid Access'}, status=400)
+    
+def cart_page(request):
+    if request.user.is_authenticated:
+        cart=Cart.objects.filter(user=request.user)
+        return render(request,'shop/cart.html',{'cart':cart})
+    else:
+       return redirect('/home')
+  
