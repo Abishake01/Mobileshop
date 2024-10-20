@@ -1,9 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: [
+     
+    '.shop/templates/shop/layouts/main.html', // for Django templates
+  ],
   theme: {
     extend: {},
   },
   plugins: [],
 }
-

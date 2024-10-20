@@ -2,9 +2,11 @@ from http.client import HTTPResponse
 import json
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
-from shop.form import CustomUserForm
+from shop.form import ContactForm, CustomUserForm
 from .models import *
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 from django.contrib.auth import authenticate,login,logout
  
 def home(request):
@@ -77,7 +79,36 @@ def about_page(request):
     return render(request,'shop/about.html')
 
 def Contact_page(request):
-    return render(request,'shop/contact.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Construct the email
+        subject = f'New Message from {name}'
+        body = f'Name: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}'
+
+        try:
+            # Replace with your admin email
+            admin_email = 'abishake381@gmail.com'  # Your admin email address
+
+            # Send the email
+            send_mail(
+                subject,
+                body,
+                settings.EMAIL_HOST_USER,  # From email (your email)
+                [admin_email],  # To email (admin email)
+                fail_silently=False,
+            )
+            messages.success(request, 'Your message has been sent successfully!')
+            return redirect('/contact')  # Redirect to the contact page after success
+        except Exception as e:
+            messages.error(request, 'Failed to send your message. Please try again later.')
+            print(e)  # Log the exception for debugging
+
+    return render(request, 'shop/contact.html')
+
 
 def add_to_cart(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':

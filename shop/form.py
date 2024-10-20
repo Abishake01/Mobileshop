@@ -11,3 +11,10 @@ class CustomUserForm(UserCreationForm):
     class Meta:
         model=User
         fields=['username','email','password1','password2']
+        
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    phone = forms.CharField(max_length=10)  # Adjust max_length based on your needs
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)
