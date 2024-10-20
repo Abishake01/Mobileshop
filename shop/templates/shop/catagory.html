@@ -1,69 +1,45 @@
 {% extends 'shop/layouts/main.html' %}
 {% block content %}
 {% include 'shop/slider.html' %}
-<section class="font-bold text-4xl pt-5 pl-16">
-    <div>
-        
-        {% for company in brand %}
-            <div class="box-content bg-white border-2 p-4 shadow-lg mb-4">
-                
-                {% if company.brand_logo %}
-                    <img src="{{ company.brand_logo.url }}" alt="{{ company.brand_name }} logo" class="w-32 h-32 object-contain">
-                {% else %}
-                    <p>No logo available</p>
-                {% endif %}
-                <h5 class="text-xl mt-2">{{ company.brand_name }}</h5>
-            </div>
-        {% endfor %}
-    </div>
-</section>
 
 <section class="font-bold text-4xl pt-5 pl-14">
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="pb-2">Catagory</h1>
-            <hr>
-        </div>
-        {% for item in catagory %}
-        <div class="col-md-4 col-lg-3 ml-10 mb-4 mr-10">
-            <h5 class="text-3xl pt-3">{{ item.name }}</h5>
-            <div class="card my-3 shadow-md">
-                <img src="{{item.image.url}}" class="card-image-top" alt="categories">
-                <a href="{% url 'mobileviews' item.name %}"><hr>
-                <div class="card-body">
-                    <h5 class="card-title text-primary text-xl">{{ item.name }}</h5>
-                    <p class="card-text  text-xl ">{{ item.description }}</p>
-                </div> 
+    <div class="container mx-auto">
+        <h1 class="pb-2">Category</h1>
+        <hr class="border-t-2 border-gray-300 mb-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+            {% for item in catagory %}
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <h5 class="text-3xl pt-3 text-center">{{ item.name }}</h5>
+                <a href="{% url 'mobileviews' item.name %}">
+                    <img src="{{item.image.url}}" class="w-full h-64 object-contain rounded-t-lg">
+                    <div class="p-4">
+                        <h5 class="text-xl font-bold text-blue-500">{{ item.name }}</h5>
+                        <p class="text-lg">{{ item.description }}</p>
+                    </div>
                 </a>
-                </div>
             </div>
             {% endfor %}
         </div>
     </div>
 </section>
-<div class="container">
-    <div class="row">
-         <div class="container font-bold text-4xl ml-24 mb-8" ><h1>Latest Offers</h1></div>
+
+<section class="container mx-auto pt-5 pl-14">
+    <h1 class="font-bold text-4xl mb-8 ">Latest Offers</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {% for item in products %}
-        <div class="col-md-4 col-lg-3  ml-20 mb-4 ">
-            <div class="card my-1 shadow-md">
-                <img src="{{item.product_image.url}}" class="card-image-top" alt="categories">
-                <a href="{% url 'product_details'  item.category.name item.name %}">
-                    <hr>
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">{{ item.name }}</h5>
-                        <p class="card-text p-4">
-                            <span class="float-start font-bold bg-red-500 text-white px-2 py-1  rounded-md hover:bg-red-600"><s>Rs.{{ item.orginal_price | stringformat:'d' }}</s></span>
-                            <span class="float-end  bg-green-700 px-2 py-1  font-bold text-yellow-50 hover:bg-green-600 rounded-md shadow-md ">Rs.{{ item.selling_price | stringformat:'d' }}</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
+        <div class="bg-white rounded-lg shadow-md p-4">
+            <a href="{% url 'product_details' item.category.name item.name %}">
+                <img src="{{item.product_image.url}}" class="w-full h-64 object-contain rounded-t-lg">
+                <div class="p-3">
+                    <h5 class="text-xl font-bold text-blue-500 text-center">{{ item.name }}</h5>
+                    <p class="flex justify-between text-lg mt-2">
+                        <span class="line-through text-white bg-red-500 p-1 rounded-md hover:bg-red-600">Rs.{{ item.orginal_price }}</span>
+                        <span class="text-white font-bold bg-green-500 p-1 rounded-md hover:bg-green-600" >Rs.{{ item.selling_price }}</span>
+                    </p>
+                </div>
+            </a>
         </div>
         {% endfor %}
     </div>
-
-</div>
- 
+</section>
 {% endblock content %}

@@ -1,4 +1,5 @@
 {% extends 'shop/layouts/main.html' %}
+{% load static %}
 {% block content %}
 <h1>
     <main class="container mx-auto my-12">
@@ -8,11 +9,11 @@
             <!-- Service 1 -->
             <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
                 <div class="flex-1">
-                    <h3 class="text-xl font-semibold mb-2">Data Recovery</h3>
+                    <h3 class="text-xl font-semibold mb-2">Screen Repair</h3>
                     <p class="text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
                 </div>
                 <div class="ml-4">
-                    <img src="https://via.placeholder.com/100" alt="Data Recovery" class="rounded-full w-24 h-24 object-cover">
+                    <img src="{% static 'images/Service1.webp' %}" alt="Screen Repair" class="rounded-full w-24 h-24 object-cover">
                 </div>
             </div>
 
@@ -23,7 +24,7 @@
                     <p class="text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
                 </div>
                 <div class="ml-4">
-                    <img src="https://via.placeholder.com/100" alt="Mic Repair" class="rounded-full w-24 h-24 object-cover">
+                    <img src="{% static 'images/Service2.png' %}" alt="Mic Repair" class="rounded-full w-24 h-24 object-cover">
                 </div>
             </div>
 
@@ -34,18 +35,18 @@
                     <p class="text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
                 </div>
                 <div class="ml-4">
-                    <img src="https://via.placeholder.com/100" alt="Unlocking Mobiles" class="rounded-full w-24 h-24 object-cover">
+                    <img src="{% static 'images/Service3.png' %}" alt="Unlocking Mobiles" class="rounded-full w-24 h-24 object-cover">
                 </div>
             </div>
 
             <!-- Service 4 -->
             <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
                 <div class="flex-1">
-                    <h3 class="text-xl font-semibold mb-2">Software Issues</h3>
+                    <h3 class="text-xl font-semibold mb-2">Water Damage</h3>
                     <p class="text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
                 </div>
                 <div class="ml-4">
-                    <img src="https://via.placeholder.com/100" alt="Software Issues" class="rounded-full w-24 h-24 object-cover">
+                    <img src="{% static 'images/Service4.png' %}" alt="Water Damage" class="rounded-full w-24 h-24 object-cover">
                 </div>
             </div>
             <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">

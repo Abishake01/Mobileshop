@@ -1,6 +1,35 @@
 {% extends 'shop/layouts/main.html' %}
 {% block content %}
-<h1>
-    About
-</h1>
+<main class="container mx-auto mt-10 px-4">
+    <section class="mb-10">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-4">Our Mission</h2>
+        <p class="text-gray-600 leading-relaxed">
+            We strive to provide the best products and services to our customers, ensuring quality and satisfaction. Our mission is to revolutionize the mobile shopping experience through innovation and customer focus.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="text-3xl font-semibold text-gray-800 mb-4">Meet Our Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/150" alt="Team Member 1" class="rounded-full mb-4 mx-auto">
+                <h3 class="text-xl font-bold text-center">Alice Johnson</h3>
+                <p class="text-gray-600 text-center">CEO</p>
+                <p class="text-gray-500 text-center mt-2">Alice has over 10 years of experience in the tech industry and is passionate about mobile technology.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/150" alt="Team Member 2" class="rounded-full mb-4 mx-auto">
+                <h3 class="text-xl font-bold text-center">Bob Smith</h3>
+                <p class="text-gray-600 text-center">CTO</p>
+                <p class="text-gray-500 text-center mt-2">Bob is a tech enthusiast and leads our development team with innovative ideas and solutions.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/150" alt="Team Member 3" class="rounded-full mb-4 mx-auto">
+                <h3 class="text-xl font-bold text-center">Charlie Brown</h3>
+                <p class="text-gray-600 text-center">COO</p>
+                <p class="text-gray-500 text-center mt-2">Charlie ensures our operations run smoothly and efficiently, focusing on customer satisfaction.</p>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock content %}

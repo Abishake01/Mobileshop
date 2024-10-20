@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="pb-2">Cart</h1>
+                <h1 class="pb-2">Favourite</h1>
                 <hr>
             </div>
             <div class="overflow-x-auto">
@@ -34,12 +34,7 @@
                       </td>
                     </tr>
                     {% endfor %}
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td colspan="2"><b>Total Amount</b></td>
-                        <td id="net">0</td>
-                    </tr>
+                     
                    
                 </table>
               </div>
@@ -47,13 +42,6 @@
             </div>
         </div>
     </section>
-    <script>
-        const nodes= document.querySelector('.amt')
-        const arr = Array.from(nodes)
-        const res = arr.reduce((acc,curr) =>{
-            return acc += Number(curr.textContent)
-        },0);
-        document.getElementById('net').innerHTML="RS :"+res
-    </script>
+     
 
 {% endblock content %}
