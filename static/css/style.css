@@ -3,7 +3,12 @@
 html{
     font-size: 14px;
 }
-
+body{
+    background-color: rgb(57, 253, 253);
+}
+header{
+    background-color: aqua;
+}
 a{
     text-decoration: none;
 }
@@ -12,22 +17,5 @@ a{
 hr{
     box-shadow: inset;
 }
-.card{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    height: 65vh;
-    
-}
-.card img{
-    height: 100%;
-    width: 100%;
-}
-
  
-.cat-name{
-    font-weight: bold;
-    font-size: x-large;
-    
-}
  

@@ -1,42 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <title>Mobile shop</title>
-  
-</head>
-<body class="bg-blue-500 p-0 m-0 font-sans">
+ 
+<body class="bg-teal-300 p-0 m-0 font-sans">
 
-    <header class="bg-blue-600 p-3 shadow-md">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="text-black font-bold text-2xl ml-2 md:ml-10 mb-2 md:mb-0">
-                <a href="{% url 'home' %}" >Partha Mobiles</a>
+    <header class="bg-teal-400 p-3 shadow-md">
+        <div class="container mx-auto flex flex-wrap items-center justify-between">
+            <!-- Brand Name -->
+            <div class="flex-shrink-0 text-black font-bold text-xs md:text-2xl ml-2 md:ml-10">
+                <a href="{% url 'home' %}">Partha Mobiles</a>
             </div>
-            
+    
             <!-- Search Bar -->
-            <div class="relative w-full max-w-md md:w-96 mx-auto">
-                <input type="text" placeholder="Search for products, brands and more" 
-                    class="px-4 py-2 w-full rounded-full bg-white border focus:outline-none">
-                <span class="absolute inset-y-0 right-4 flex items-center">
-                    <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.41-1.41l4.29 4.3a1 1 0 11-1.42 1.41l-4.28-4.3zM8 14a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"/>
-                    </svg>
+            <div class="flex-1 relative w-full max-w-md md:w-96 mx-4">
+                <input type="text" placeholder="Search for products" 
+                    class="   md:px-4 md:py-2 w-full rounded-full bg-white border focus:outline-none">
+                <span class="absolute inset-y-0 right-3 flex items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
             </div>
-            
-            <!-- Cart and User Links -->
-            <div class="flex gap-3 items-center mt-3 md:mt-0">
-                <a class="text-xl cursor-pointer" href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
-                <a class="text-xl cursor-pointer" href="{% url 'favviewpage' %}"><i class="fa-regular fa-heart"></i> Like</a>
+    
+             <div class="flex gap-3 items-center mt-2 md:mt-0 text-black">
+                <!-- Cart Icon -->
+                <a class="text-xl cursor-pointer" href="{% url 'cart' %}">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="hidden md:inline">Cart</span>
+                </a>
+    
+                <!-- Like Icon -->
+                <a class="text-xl cursor-pointer" href="{% url 'favviewpage' %}">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="hidden md:inline">Like</span>
+                </a>
+    
+                <!-- User Authentication Links -->
                 {% if request.user.is_authenticated %}
-                <a class="text-xl cursor-pointer" href="{% url 'login' %}"><i class="fa-solid fa-user"></i>{{request.user}}</a>
-                <a class="text-xl cursor-pointer" href="{% url 'logout' %}"><i class="fa-solid fa-sign-out"></i>Logout</a>
+                <a class="text-xl cursor-pointer flex items-center" href="{% url 'login' %}">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="ml-1 hidden md:inline">{{request.user}}</span>
+                </a>
+                <a class="text-xl cursor-pointer" href="{% url 'logout' %}">
+                    <i class="fa-solid fa-sign-out"></i>
+                    <span class="hidden md:inline">Logout</span>
+                </a>
                 {% else %}
-                <a class="text-xl cursor-pointer" href="{% url 'login' %}"><i class="fa-solid fa-user"></i>Login</a>
+                <a class="text-xl cursor-pointer" href="{% url 'login' %}">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="hidden md:inline">Login</span>
+                </a>
                 {% endif %}
             </div>
         </div>
     </header>
+    <br>
  
     <div class="md:hidden">
         <button id="menu-btn" class="text-white focus:outline-none">
@@ -65,4 +78,4 @@
 </script>
 
 </body>
-</html>
+ 

@@ -87,7 +87,8 @@ DATABASES = {
             
         }
    }
-}'''
+}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -96,6 +97,17 @@ DATABASES = {
         'DATA_BASE_URL':'mysql://root:VfUZEvztrqyUgZUbkocrVSSJFkRXctTj@mysql-hsdb.railway.internal:3306/railway',
         'USER': 'root',
         'PASSWORD':'VfUZEvztrqyUgZUbkocrVSSJFkRXctTj',
+        'PORT':'3306'
+    }
+}
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':  'django_partha',
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD':'Nilla@123',
         'PORT':'3306'
     }
 }
@@ -141,7 +153,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticf')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
  
 
