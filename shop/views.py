@@ -66,11 +66,7 @@ def product_details(request,cname,pname):
             return redirect('home')
     else:
         messages.error(request,'No such Category Found')
-
-def brand(request, bname):
  
-    brand = Brands.objects.filter(brand_name=bname,).first()
-    return render(request, 'shop/catagory.html', {'brand': brand})
 
 def service_page(request):
     return render(request, 'shop/service.html')
