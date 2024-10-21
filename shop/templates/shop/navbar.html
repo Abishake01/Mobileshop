@@ -1,56 +1,58 @@
- 
 <body class="bg-teal-300 p-0 m-0 font-sans">
 
-    <header class="bg-teal-400 p-3 shadow-md">
+    <header class="bg-teal-400 p-3 shadow-md ">
         <div class="container mx-auto flex flex-wrap items-center justify-between">
             <!-- Brand Name -->
             <div class="flex-shrink-0 text-black font-bold text-xs md:text-2xl ml-2 md:ml-10">
                 <a href="{% url 'home' %}">Partha Mobiles</a>
             </div>
-    
+
             <!-- Search Bar -->
-            <div class="flex-1 relative w-full max-w-md md:w-96 mx-4">
-                <input type="text" placeholder="Search for products" 
-                    class="   md:px-4 md:py-2 w-full rounded-full bg-white border focus:outline-none">
+            <div class="flex-1 relative w-full max-w-md md:w-96 mx-4 sm:hidden  ">
+                <input type="text" placeholder="Search for products"
+                    class=" md:px-4 md:py-2 w-full rounded-full bg-white border focus:outline-none">
                 <span class="absolute inset-y-0 right-3 flex items-center">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
             </div>
-    
-             <div class="flex gap-3 items-center mt-2 md:mt-0 text-black">
+
+            <div class="flex gap-3 items-center mt-2 md:mt-0 text-black">
                 <!-- Cart Icon -->
                 <a class="text-xl cursor-pointer" href="{% url 'cart' %}">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="hidden md:inline">Cart</span>
                 </a>
-    
+
                 <!-- Like Icon -->
                 <a class="text-xl cursor-pointer" href="{% url 'favviewpage' %}">
                     <i class="fa-regular fa-heart"></i>
                     <span class="hidden md:inline">Like</span>
                 </a>
-    
+
                 <!-- User Authentication Links -->
                 {% if request.user.is_authenticated %}
                 <a class="text-xl cursor-pointer flex items-center" href="{% url 'login' %}">
                     <i class="fa-solid fa-user"></i>
                     <span class="ml-1 hidden md:inline">{{request.user}}</span>
                 </a>
+
                 <a class="text-xl cursor-pointer" href="{% url 'logout' %}">
                     <i class="fa-solid fa-sign-out"></i>
                     <span class="hidden md:inline">Logout</span>
                 </a>
+
                 {% else %}
                 <a class="text-xl cursor-pointer" href="{% url 'login' %}">
                     <i class="fa-solid fa-user"></i>
                     <span class="hidden md:inline">Login</span>
                 </a>
+
                 {% endif %}
             </div>
         </div>
     </header>
-    <br>
- 
+
+
     <div class="md:hidden">
         <button id="menu-btn" class="text-white focus:outline-none">
             <i class="fa-solid fa-bars fa-2x"></i>
@@ -58,10 +60,11 @@
     </div>
 
     <!-- Navigation Links -->
-    <nav class="hidden md:flex flex-col justify-center md:flex-row space-y-4 md:space-y-0 md:space-x-12 text-black" id="menu">
-        <a href="{% url 'mobileviews' 'mobiles' %}">MOBILES  <i class="fa-solid fa-chevron-down"></i></a>
-        <a href="{% url 'mobileviews' 'accessories' %}">ACCESSORIES  <i class="fa-solid fa-chevron-down"></i></a>
-        <a href="{% url 'mobileviews' 'gadgets' %}">GADGETS  <i class="fa-solid fa-chevron-down"></i></a>
+    <nav class="hidden md:flex flex-col justify-center md:flex-row space-y-4 md:space-y-0 md:space-x-12 md:mt-7 text-black"
+        id="menu">
+        <a href="{% url 'mobileviews' 'mobiles' %}">MOBILES <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="{% url 'mobileviews' 'accessories' %}">ACCESSORIES <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="{% url 'mobileviews' 'gadgets' %}">GADGETS <i class="fa-solid fa-chevron-down"></i></a>
         <a href="{% url 'service' %}">SERVICES</a>
         <a href="{% url 'about' %}">ABOUT</a>
         <a href="{% url 'contact' %}">CONTACT</a>
@@ -69,13 +72,12 @@
 
     <br>
     <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
 
-    menuBtn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
-</script>
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 
 </body>
- 
