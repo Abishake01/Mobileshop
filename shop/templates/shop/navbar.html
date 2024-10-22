@@ -8,7 +8,7 @@
             </div>
 
             <!-- Search Bar -->
-            <div class="flex-1 relative w-full max-w-md md:w-96 mx-4 sm:hidden  ">
+            <div class="flex-1 relative w-full max-w-md md:w-96 mx-4 hidden sm:block  ">
                 <input type="text" placeholder="Search for products"
                     class=" md:px-4 md:py-2 w-full rounded-full bg-white border focus:outline-none">
                 <span class="absolute inset-y-0 right-3 flex items-center">
@@ -54,7 +54,7 @@
 
 
     <div class="md:hidden">
-        <button id="menu-btn" class="text-white focus:outline-none">
+        <button id="menu-btn" class="text-black focus:outline-none">
             <i class="fa-solid fa-bars fa-2x"></i>
         </button>
     </div>
@@ -65,6 +65,8 @@
         <a href="{% url 'mobileviews' 'mobiles' %}">MOBILES <i class="fa-solid fa-chevron-down"></i></a>
         <a href="{% url 'mobileviews' 'accessories' %}">ACCESSORIES <i class="fa-solid fa-chevron-down"></i></a>
         <a href="{% url 'mobileviews' 'gadgets' %}">GADGETS <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="{% url 'mobileviews' 'secondhand' %}">SECOND_HAND <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="{% url 'offers' %}">OFFERS</a>
         <a href="{% url 'service' %}">SERVICES</a>
         <a href="{% url 'about' %}">ABOUT</a>
         <a href="{% url 'contact' %}">CONTACT</a>

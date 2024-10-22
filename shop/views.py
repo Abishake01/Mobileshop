@@ -46,6 +46,11 @@ def register(request):
             return redirect('/login')
     return render(request,'shop/register.html',{'form':form})
 
+def offer_page(request):
+    products=Product.objects.filter(trending=1)
+    return render(request,'shop/offers.html',{'products':products})
+    
+    
 def mobileviews(request,name):
     
     if (Catagory.objects.filter(name=name,status=0)): 
@@ -55,6 +60,10 @@ def mobileviews(request,name):
         messages.error(request,"No such Product Found")
         return redirect('home')
     
+def secondhand(request):
+    products=Product.objects.filter(secondhand=0)
+    return render(request,'shop/second.html',{'products':products})
+
     
 def product_details(request,cname,pname):
     if(Catagory.objects.filter(name=cname,status=0)):
