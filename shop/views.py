@@ -60,10 +60,7 @@ def mobileviews(request,name):
         messages.error(request,"No such Product Found")
         return redirect('home')
     
-def secondhand(request):
-    products=Product.objects.filter(secondhand=0)
-    return render(request,'shop/second.html',{'products':products})
-
+ 
     
 def product_details(request,cname,pname):
     if(Catagory.objects.filter(name=cname,status=0)):
@@ -147,6 +144,11 @@ def add_to_cart(request):
 def cart_page(request):
     if request.user.is_authenticated:
         cart=Cart.objects.filter(user=request.user)
+        amount=0
+        for i in cart:
+            value=i.product_qty*i.total_cost
+            amount+=value
+        total_amount=amount+40
         return render(request,'shop/cart.html',{'cart':cart})
     else:
        return redirect('/home')
