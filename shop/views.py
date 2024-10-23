@@ -2,6 +2,7 @@ from http.client import HTTPResponse
 import json
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
+from django.views import View
 from shop.form import ContactForm, CustomUserForm
 from .models import *
 from django.contrib import messages
@@ -46,6 +47,10 @@ def register(request):
             return redirect('/login')
     return render(request,'shop/register.html',{'form':form})
 
+def profile_page(request):
+    pass
+def password_change(request):
+    pass
 def offer_page(request):
     products=Product.objects.filter(trending=1)
     return render(request,'shop/offers.html',{'products':products})
@@ -60,7 +65,7 @@ def mobileviews(request,name):
         messages.error(request,"No such Product Found")
         return redirect('home')
     
- 
+
     
 def product_details(request,cname,pname):
     if(Catagory.objects.filter(name=cname,status=0)):
@@ -73,8 +78,8 @@ def product_details(request,cname,pname):
     else:
         messages.error(request,'No such Category Found')
  
-
-def service_page(request):
+class service_page(View):
+ def get(self,request):
     return render(request, 'shop/service.html')
 
 def about_page(request):
@@ -144,11 +149,7 @@ def add_to_cart(request):
 def cart_page(request):
     if request.user.is_authenticated:
         cart=Cart.objects.filter(user=request.user)
-        amount=0
-        for i in cart:
-            value=i.product_qty*i.total_cost
-            amount+=value
-        total_amount=amount+40
+        
         return render(request,'shop/cart.html',{'cart':cart})
     else:
        return redirect('/home')
