@@ -80,7 +80,10 @@ def product_details(request,cname,pname):
  
 class service_page(View):
  def get(self,request):
-    return render(request, 'shop/service.html')
+    if request.method == 'POST':
+        return  redirect('/home')
+    else:
+        return render(request, 'shop/service.html')
 
 def about_page(request):
     return render(request,'shop/about.html')
