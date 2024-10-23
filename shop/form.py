@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm,UserChangeForm
 from .models import User
 from django import forms
 
@@ -12,6 +12,14 @@ class CustomUserForm(UserCreationForm):
         model=User
         fields=['username','email','password1','password2']
         
+#class PasswordReset(PasswordChangeForm):
+ #   pass
+class ProfileForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email')
+         
+        exclude = ('password',)
 
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=100)

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5k)n8(^!-_job1%nz)bo^^w%@w%az5yucgv61f_mxo9x9d56o$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['parthamobiles-68c15ymjk-abishakes-projects.vercel.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
 
 
@@ -96,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':  'railway',
         'HOST': 'mysql-hsdb.railway.internal',
-        'DATA_BASE_URL':'mysql://root:VfUZEvztrqyUgZUbkocrVSSJFkRXctTj@mysql-hsdb.railway.internal:3306/railway',
+        'DATA_BASE_URL':'mysql://root:RwmWALdYgAQOjinXdAxhHgWGuBoGzKOF@autorack.proxy.rlwy.net:32242/railway',
         'USER': 'root',
         'PASSWORD':'VfUZEvztrqyUgZUbkocrVSSJFkRXctTj',
         'PORT':'3306'
