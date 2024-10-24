@@ -1,0 +1,36 @@
+{% extends 'shop/layouts/main.html' %}
+{% block content %}
+<section class="py-4 my-5">
+    <div class="container mx-auto">
+        <h2 class="text-2xl font-bold mb-5">Review Your Order</h2>
+        <div class="flex flex-col md:flex-row bg-white p-6 shadow-md rounded-lg">
+            
+            <!-- Product Image and Details -->
+            <div class="md:w-1/3 w-full p-4">
+                <img src="{{ product.product_image.url }}" class="h-96 w-full object-contain" alt="{{ product.name }}">
+                <h3 class="text-xl font-semibold mt-4">{{ product.name | upper }}</h3>
+                <p class="text-gray-600 mt-2">Price: Rs. {{ product.selling_price }}</p>
+            </div>
+
+            <!-- Order Form -->
+            <div class="md:w-2/3 w-full p-4">
+                <h3 class="text-lg font-bold mb-4">Shipping Information</h3>
+                <form method="POST" action="{% url 'place_order' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ product.id }}" name="product_id">
+                    
+                    <label for="shipping_address" class="block text-gray-700">Shipping Address</label>
+                    <textarea name="shipping_address" id="shipping_address" rows="3" class="border rounded-md w-full p-2 mb-4" required></textarea>
+
+                    <label for="phone_number" class="block text-gray-700">Phone Number</label>
+                    <input type="text" name="phone_number" id="phone_number" class="border rounded-md w-full p-2 mb-4" required>
+
+                    <h4 class="text-lg font-semibold mb-4">Total Amount: Rs. {{ product.selling_price }}</h4>
+
+                    <button type="submit" class="btn bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

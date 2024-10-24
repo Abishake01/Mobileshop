@@ -1,0 +1,14 @@
+{% extends 'shop/layouts/main.html' %}
+{% block content %}
+<section class="py-4 my-5 mx-4 md:mx-24">
+    <div class="container mx-auto">
+        <div class="text-center bg-white p-6 shadow-md rounded-lg">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 text-green-600">Order Placed Successfully!</h2>
+            <p class="text-sm md:text-base">Thank you for your purchase. Your order has been placed and will be processed soon.</p>
+            <p class="text-sm md:text-base mt-4">Order Number: <strong>{{ order.id }}</strong></p>
+            <p class="text-sm md:text-base">We will notify you when the order is ready for delivery.</p>
+            <a href="{% url 'home' %}" class="btn bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 md:px-6 rounded-full mt-6 inline-block text-sm md:text-base">Continue Shopping</a>
+        </div>
+    </div><br><br><br>
+</section>
+{% endblock %}

@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.views import View
 from shop.form import ContactForm, CustomUserForm
+from django.contrib.auth.decorators import login_required
 from .models import *
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -54,7 +55,36 @@ def password_change(request):
 def offer_page(request):
     products=Product.objects.filter(trending=1)
     return render(request,'shop/offers.html',{'products':products})
+  
+
+@login_required
+def buy_view(request, product_id):
+    product = Product.objects.get(id=product_id)
+    return render(request, 'shop/buy.html', {'product': product})
+
+@login_required
+def place_order_view(request):
+    if request.method == 'POST':
+        product_id = request.POST.get('product_id')
+        shipping_address = request.POST.get('shipping_address')
+        phone_number = request.POST.get('phone_number')
+
+        product = Product.objects.get(id=product_id)
+        order = Order.objects.create(
+            user=request.user,
+            product=product,
+            shipping_address=shipping_address,
+            phone_number=phone_number,
+            total_amount=product.selling_price
+        )
+
+        # Redirect to the order confirmation page
+        return redirect('order_placed', order_id=order.id)
     
+@login_required
+def order_placed_view(request, order_id):
+    order = Order.objects.get(id=order_id)
+    return render(request, 'shop/order_placed.html', {'order': order})  
     
 def mobileviews(request,name):
     
