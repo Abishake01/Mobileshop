@@ -14,7 +14,6 @@ urlpatterns = [
     path('favviewpage',views.favviewpage,name='favviewpage'),
     path('remove_fav/<int:fid>',views.remove_fav,name='remove_fav'),
     path('remove_cart/<int:cid>',views.remove_cart,name='remove_cart'),
-   #path('home/<str:catagory>/',views.mobileviews,name='mobileviews'),
     path('home/<str:name>/', views.mobileviews, name='mobileviews'),  
     path('offers',views.offer_page,name='offers'),
     path('home/<str:cname>/<str:pname>', views.product_details, name='product_details'),

@@ -33,7 +33,7 @@
                <!-- User Authentication Links  -->
                {% if request.user.is_authenticated %}
                <div class="relative group">
-                   <a class="text-xl cursor-pointer flex items-center" id="userMenuToggle" href="#">
+                   <a class="text-xl cursor-pointer flex items-center" id="userMenuToggle" href="{% url 'home'%}">
                        <i class="fa-solid fa-user"></i>
                        <span class="ml-1 hidden md:inline">{{ request.user }}</span>
                    </a>
