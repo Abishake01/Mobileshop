@@ -10,7 +10,9 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth import authenticate,login,logout
- 
+from django.db.models import Q
+
+
 def home(request):
     products=Product.objects.filter(trending=1)
     catagory=Catagory.objects.filter(status=0)
@@ -55,8 +57,20 @@ def password_change(request):
 def offer_page(request):
     products=Product.objects.filter(trending=1)
     return render(request,'shop/offers.html',{'products':products})
-  
 
+def search_products(request):
+    query = request.GET.get('q')
+    if query:
+        # Filter by product name, category name (related field), or description
+        products = Product.objects.filter(
+            Q(name__icontains=query) |
+            Q(category__name__icontains=query) |  # Filter by related category name
+            Q(description__icontains=query)
+        )
+    else:
+        products = Product.objects.none()  # No results if the query is empty
+    
+    return render(request, 'shop/search_results.html', {'products': products, 'query': query})
 @login_required
 def buy_view(request, product_id):
     product = Product.objects.get(id=product_id)

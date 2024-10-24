@@ -27,6 +27,7 @@ urlpatterns = [
     path('buy/<int:product_id>/', views.buy_view, name='buy'),
     path('place_order/', views.place_order_view, name='place_order'),
     path('order_placed/<int:order_id>/', views.order_placed_view, name='order_placed'),
+    path('search/', views.search_products, name='search_products'),
     #path('password-reset/',views.passwordreset.as_view(form_class=PasswordChangeForm),name='password_reset')
 ]
 '''
