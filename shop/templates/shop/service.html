@@ -1,98 +1,250 @@
 {% extends 'shop/layouts/index.html' %}
 {% load static %}
 {% block content %}
-<h1>
-    <main class="container mx-auto my-6">
-        <h2 class="text-center text-3xl font-bold mb-8">Our Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            <!-- Service 1 -->
-            <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
-                <div class="flex-1">
-                    <h3 class="text-xl font-semibold mb-2">Screen Repair</h3>
-                    <p class="text-gray-600">Is your mobile screen cracked or unresponsive? We offer quick and reliable screen repairs for all major smartphone brands. From shattered glass to malfunctioning touchscreens, our expert technicians provide high-quality replacements with same-day service. We use original parts and offer a warranty for peace of mind. Get your phone back to perfect condition today!</p>
-                </div>
-                <div class="ml-4">
-                    <img src="{% static 'images/Service1.webp' %}" alt="Screen Repair" class="rounded-full w-24 h-24 object-cover">
-                </div>
+<main class="container mx-auto my-6">
+    <!-- Page Title -->
+    <h2 class="text-center text-3xl font-bold mb-8">Our Services</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Service 1: Screen Repair -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+            <div class="flex-1">
+                <h3 class="text-xl font-semibold mb-2">Screen Repair</h3>
+                <p class="text-gray-600">
+                    Is your mobile screen cracked or unresponsive? We offer quick and reliable screen repairs 
+                    for all major smartphone brands. From shattered glass to malfunctioning touchscreens, 
+                    our expert technicians provide high-quality replacements with same-day service. 
+                    We use original parts and offer a warranty for peace of mind.
+                </p>
             </div>
-
-            <!-- Service 2 -->
-            <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
-                <div class="flex-1">
-                    <h3 class="text-xl font-semibold mb-2">Mic Repair</h3>
-                    <p class="text-gray-600">Having trouble with your phone’s microphone? We specialize in mic repairs for all mobile models. Whether it's muffled sound or no audio during calls, our expert technicians can quickly diagnose and fix the issue. We use quality parts to ensure clear and crisp sound. Get your mic repaired and enjoy flawless communication again!</p>
-                </div>
-                <div class="ml-4">
-                    <img src="{% static 'images/Service2.png' %}" alt="Mic Repair" class="rounded-full w-24 h-24 object-cover">
-                </div>
+            <div class="ml-4">
+                <img src="{% static 'images/Service1.webp' %}" 
+                     alt="Screen Repair" class="rounded-full w-24 h-24 object-cover">
             </div>
-
-            <!-- Service 3 -->
-            <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
-                <div class="flex-1">
-                    <h3 class="text-xl font-semibold mb-2">Unlocking Mobiles</h3>
-                    <p class="text-gray-600">Mobile phone unlocking refers to the process of removing carrier restrictions from a device, allowing it to be used with different network providers. When a phone is locked, it can only operate with the specific carrier it was purchased from, often as part of a contract or installment plan. Unlocking typically requires contacting the carrier for an unlock code or using third-party services, and the phone must meet certain conditions, like completing the contract or being fully paid off.</p>
-                </div>
-                <div class="ml-4">
-                    <img src="{% static 'images/Service3.png' %}" alt="Unlocking Mobiles" class="rounded-full w-24 h-24 object-cover">
-                </div>
-            </div>
-
-            <!-- Service 4 -->
-            <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
-                <div class="flex-1">
-                    <h3 class="text-xl font-semibold mb-2">Water Damage</h3>
-                    <p class="text-gray-600">Mobile water damage repair involves restoring a phone that has been exposed to water or other liquids. The process generally includes disassembling the device, drying internal components, and cleaning any corrosion that may have occurred due to water contact. Technicians often use specialized tools like ultrasonic cleaners to remove debris and moisture. Water damage can lead to a variety of issues, including short circuits, malfunctioning buttons, and display problems, so repair may involve replacing damaged parts.</p>
-                </div>
-                <div class="ml-4">
-                    <img src="{% static 'images/Service4.png' %}" alt="Water Damage" class="rounded-full w-24 h-24 object-cover">
-                </div>
-            </div>
-            
         </div>
-        <!--form-->
+
+        <!-- Service 2: Mic Repair -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+            <div class="flex-1">
+                <h3 class="text-xl font-semibold mb-2">Mic Repair</h3>
+                <p class="text-gray-600">
+                    Having trouble with your phone’s microphone? Whether it's muffled sound or no audio during calls, 
+                    we specialize in quick and effective mic repairs for all mobile models, using only quality parts.
+                </p>
+            </div>
+            <div class="ml-4">
+                <img src="{% static 'images/Service2.png' %}" 
+                     alt="Mic Repair" class="rounded-full w-24 h-24 object-cover">
+            </div>
+        </div>
+
+        <!-- Service 3: Unlocking Mobiles -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+            <div class="flex-1">
+                <h3 class="text-xl font-semibold mb-2">Unlocking Mobiles</h3>
+                <p class="text-gray-600">
+                    Unlock your phone from carrier restrictions and enjoy the freedom to switch networks. 
+                    We can unlock most models, following all legal procedures, so you can use your device anywhere.
+                </p>
+            </div>
+            <div class="ml-4">
+                <img src="{% static 'images/Service3.png' %}" 
+                     alt="Unlocking Mobiles" class="rounded-full w-24 h-24 object-cover">
+            </div>
+        </div>
+
+        <!-- Service 4: Water Damage -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+            <div class="flex-1">
+                <h3 class="text-xl font-semibold mb-2">Water Damage Repair</h3>
+                <p class="text-gray-600">
+                    Our technicians specialize in restoring phones affected by water damage. 
+                    We clean and repair internal components using advanced tools to get your phone working again.
+                </p>
+            </div>
+            <div class="ml-4">
+                <img src="{% static 'images/Service4.png' %}" 
+                     alt="Water Damage Repair" class="rounded-full w-24 h-24 object-cover">
+            </div>
+        </div>
+
+        <!-- New Service 5: Battery Replacement -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+            <div class="flex-1">
+                <h3 class="text-xl font-semibold mb-2">Battery Replacement</h3>
+                <p class="text-gray-600">
+                    Is your phone battery draining too fast? We provide fast battery replacements with high-quality, 
+                    original batteries for most models. Keep your device running longer with a new battery.
+                </p>
+            </div>
+            <div class="ml-4">
+                <img src="{% static 'images/Service5.jpeg' %}" 
+                     alt="Battery Replacement" class="rounded-full w-24 h-24 object-cover">
+            </div>
+        </div>
+
+        <!-- New Service 6: Software Troubleshooting -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+            <div class="flex-1">
+                <h3 class="text-xl font-semibold mb-2">Software Troubleshooting</h3>
+                <p class="text-gray-600">
+                    Having issues with your phone’s software? From system crashes to app malfunctions, 
+                    we offer software diagnostics and troubleshooting to get your phone back to normal.
+                </p>
+            </div>
+            <div class="ml-4">
+                <img src="{% static 'images/Service6.jpg' %}" 
+                     alt="Software Troubleshooting" class="rounded-full w-24 h-24 object-cover">
+            </div>
+        </div>
+        <!-- New Service 8: Data Recovery -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+            <div class="flex-1">
+                <h3 class="text-xl font-semibold mb-2">Data Recovery</h3>
+                <p class="text-gray-600">
+                    Lost important files, photos, or contacts? Our data recovery service helps restore lost or accidentally deleted data 
+                    from phones, including internal storage and SD cards. We handle complex recovery with care and confidentiality.
+                </p>
+            </div>
+            <div class="ml-4">
+                <img src="{% static 'images/Service7.jpeg' %}" 
+                     alt="Data Recovery" class="rounded-full w-24 h-24 object-cover">
+            </div>
+        </div>
+
+        <!-- New Service 7: Camera Repair -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex items-center">
+            <div class="flex-1">
+                <h3 class="text-xl font-semibold mb-2">Camera Repair</h3>
+                <p class="text-gray-600">
+                    Facing issues with blurry photos or a non-working camera? 
+                    We specialize in repairing front and rear cameras for most smartphone models. 
+                    Capture perfect moments again with our quick camera repair services.
+                </p>
+            </div>
+            <div class="ml-4">
+                <img src="{% static 'images/Service8.jpeg' %}" 
+                     alt="Camera Repair" class="rounded-full w-24 h-24 object-cover">
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Cards with Accordion -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {% for service in services %}
+        <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+            <div class="flex items-center cursor-pointer" onclick="toggleAccordion('{{ service.id }}')">
+                <div class="flex-1">
+                    <h3 class="text-xl font-semibold mb-2">{{ service.name }}</h3>
+                    <p class="text-gray-600 line-clamp-2">{{ service.short_description }}</p>
+                </div>
+                <img src="{% static service.image %}" alt="{{ service.name }}" class="ml-4 w-24 h-24 object-cover rounded-full">
+            </div>
+            <div id="{{ service.id }}" class="hidden mt-4 text-gray-600">
+                <p>{{ service.full_description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Modal Trigger for Form -->
+    <div class="flex justify-center mt-10">
+        <button onclick="toggleModal()" class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-300">
+            Submit Your Request
+        </button>
+    </div>
+
+    <!-- Modal Form -->
+    <div id="form-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden">
         <div class="flex items-center justify-center min-h-screen">
             <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-              <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">Submit Your Request</h2>
-          
-              <form id="request-form" method="post">
-                {% csrf_token %}
-          
-                <div class="mb-4">
-                  <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                  <input type="text" id="name" name="name" placeholder="Enter your name"
-                    class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                <div class="flex justify-end">
+                    <button onclick="toggleModal()" class="text-gray-500 hover:text-black">&times;</button>
                 </div>
-          
-                <div class="mb-4">
-                  <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
-                  <input type="text" id="address" name="address" placeholder="Enter your address"
-                    class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                </div>
-          
-                <div class="mb-4">
-                  <label for="problem" class="block text-sm font-medium text-gray-700">Problem</label>
-                  <textarea id="problem" name="problem" placeholder="Describe your problem"
-                    class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required></textarea>
-                </div>
-          
-                <div class="mb-4">
-                  <label for="expected_date" class="block text-sm font-medium text-gray-700">Expected Return Date</label>
-                  <input type="date" id="expected_date" name="expected_date"
-                    class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                </div>
-          
-                <div class="mb-6">
-                  <label for="contact_number" class="block text-sm font-medium text-gray-700">Contact Number</label>
-                  <input type="tel" id="contact_number" name="contact_number" placeholder="Enter your contact number"
-                    class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                </div>
-          
-                <button type="submit" class="w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300">Submit</button>
-              </form>
+                <h2 class="text-2xl font-semibold text-center mb-6">Submit Your Request</h2>
+
+                <form id="request-form" method="post">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-medium">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" 
+                            class="w-full px-4 py-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="address" class="block text-sm font-medium">Address</label>
+                        <input type="text" id="address" name="address" placeholder="Enter your address" 
+                            class="w-full px-4 py-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="problem" class="block text-sm font-medium">Problem</label>
+                        <textarea id="problem" name="problem" placeholder="Describe your problem" 
+                            class="w-full px-4 py-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="expected_date" class="block text-sm font-medium">Expected Return Date</label>
+                        <input type="date" id="expected_date" name="expected_date" 
+                            class="w-full px-4 py-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="contact_number" class="block text-sm font-medium">Contact Number</label>
+                        <input type="tel" id="contact_number" name="contact_number" placeholder="Enter your contact number" 
+                            class="w-full px-4 py-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+
+                    <button type="submit" class="w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors duration-300">
+                        Submit
+                    </button>
+                </form>
             </div>
-          </div>
-    </main>
-</h1>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top-btn" class="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-full shadow-md hidden"
+        onclick="scrollToTop()">
+        ⬆️
+    </button>
+</main>
+
+<!-- JavaScript for Interactivity -->
+<script>
+    function toggleAccordion(id) {
+        const element = document.getElementById(id);
+        element.classList.toggle('hidden');
+    }
+
+    function toggleModal() {
+        const modal = document.getElementById('form-modal');
+        modal.classList.toggle('hidden');
+    }
+
+    window.addEventListener('scroll', () => {
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+        if (window.scrollY > 200) {
+            scrollTopBtn.classList.remove('hidden');
+        } else {
+            scrollTopBtn.classList.add('hidden');
+        }
+    });
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+<style>
+    /* Fade-in animation for smooth page load */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+</style>
 {% endblock content %}
+
