@@ -189,7 +189,7 @@ def add_to_cart(request):
             except Product.DoesNotExist:
                 return JsonResponse({'status': 'Product Not Found'}, status=404)
         else:
-            return JsonResponse({'status': 'Login to Add to Cart'}, status=403)
+            return JsonResponse({'status': 'Login to Add to Cart'}, status=200)
     else:
         return JsonResponse({'status': 'Invalid Access'}, status=400)
     

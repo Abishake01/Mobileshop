@@ -6,9 +6,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
              
             {% for item in products %}
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="{{item.product_image.url}}" class="w-full h-64 object-contain" alt="categories">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden group">
                 <a href="{% url 'product_details' category_name item.name %}">
+                <div class="overflow-hidden">
+                    <img src="{{item.product_image.url}}" class="w-full h-64 object-contain transform transition-transform duration-300 ease-out group-hover:scale-110" alt="categories">
+                </div>
+                
                     <div class="p-4">
                         <h5 class="text-xl text-primary font-semibold text-center">{{ item.name }}</h5>
                         <p class="flex justify-between mt-3">
@@ -22,6 +25,7 @@
                     </div>
                 </a>
             </div>
+            
             {% endfor %}
         </div>
     </div>
